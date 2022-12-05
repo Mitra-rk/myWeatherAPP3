@@ -1,3 +1,63 @@
-.container {
-  border: 2px solid gray;
+.wrapper {
+  width: 40%;
+  height: 330px;
+  margin: 20px auto;
 }
+
+.container {
+  border: 1px solid gray;
+
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+#city {
+  color: rgb(172, 171, 171);
+  font-weight: lighter;
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+#citySearch {
+  margin-bottom: 10px;
+}
+
+#day,
+#condition {
+  color: rgb(172, 171, 171);
+  font-weight: lighter;
+  font-size: 20px;
+  
+}
+.humidityWind {
+  color: rgb(173, 171, 171);
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+#temprature {
+  font-size: 48px;
+  font-weight: normal;
+  
+}
+.coded {
+  padding-top: 10px;
+}
+
+.cf {
+  position: relative;
+  top: -30px;
+}
+ul {
+  list-style: none;
+  margin-left: 0;
+}
+ul li {
+  line-height: 1.2;
+  
+}
+p{
+  line-height: 0.5;
+}
+
