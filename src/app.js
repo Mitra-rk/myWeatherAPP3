@@ -33,11 +33,18 @@ function giveInfo(response) {
     "Friday",
     "Saturday",
   ];
-  let date = new Date();
+  let date = new Date(response.data.time);
   let day = week[date.getDay()];
-  let time = date.getHours(1670322535 * 1000);
+  let hour = date.getHours();
+  let min = date.getMinutes();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  if (min < 10) {
+    min = `0${min}`;
+  }
   let currentDay = document.querySelector("#day");
-  currentDay.innerHTML = `Last updated:${day}`;
+  currentDay.innerHTML = `Last updated at :${day} ${hour}:${min}`;
   console.log(new Date());
   console.log(time);
   console.log(new Date(1670319300) * 1000);

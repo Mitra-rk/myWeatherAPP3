@@ -57,3 +57,10 @@ ul li {
 p {
   line-height: 0.5;
 }
+h1::first-letter {
+  text-transform: capitalize;
+}
+
+#condition::first-letter {
+  text-transform: capitalize;
+}
