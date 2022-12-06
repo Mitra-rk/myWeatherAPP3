@@ -1,5 +1,5 @@
 .wrapper {
-  width: 40%;
+  width: 45%;
   height: 330px;
   margin: 20px auto;
 }
@@ -28,7 +28,6 @@
   color: rgb(172, 171, 171);
   font-weight: lighter;
   font-size: 20px;
-  
 }
 .humidityWind {
   color: rgb(173, 171, 171);
@@ -39,7 +38,6 @@
 #temprature {
   font-size: 48px;
   font-weight: normal;
-  
 }
 .coded {
   padding-top: 10px;
@@ -55,9 +53,7 @@ ul {
 }
 ul li {
   line-height: 1.2;
-  
 }
-p{
+p {
   line-height: 0.5;
 }
-

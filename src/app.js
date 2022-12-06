@@ -1,8 +1,10 @@
 function findCity(event) {
   event.preventDefault();
   let city = document.querySelector("#citySearch");
+
   let apiKey = "0t0f733f3454c9aobbda64f6025e69d0";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}`;
+
   axios.get(apiUrl).then(giveInfo);
 }
 let btnSearch = document.querySelector("#search");
@@ -13,9 +15,9 @@ function giveInfo(response) {
   let citySearch = document.querySelector("#city");
   citySearch.innerHTML = response.data.city;
   let currentWind = document.querySelector("#wind");
-  currentWind.innerHTML = `Wind:${Math.round(response.data.wind.speed)}`;
+  currentWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} Km/h`;
   let currentHumidity = document.querySelector("#humid");
-  currentHumidity.innerHTML = `Humidity:${response.data.temperature.humidity}`;
+  currentHumidity.innerHTML = `Humidity: ${response.data.temperature.humidity} %`;
   let currentCondition = document.querySelector("#condition");
   currentCondition.innerHTML = response.data.condition.description;
   let currentTemp = document.querySelector("#temprature");
