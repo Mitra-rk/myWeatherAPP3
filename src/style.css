@@ -11,7 +11,11 @@
   box-sizing: border-box;
   padding: 20px;
 }
-
+#image {
+  margin-right: 5px;
+  height: 64px;
+  width: 64px;
+}
 #city {
   color: rgb(172, 171, 171);
   font-weight: lighter;
@@ -64,4 +68,18 @@ h1::first-letter {
 
 #condition::first-letter {
   text-transform: capitalize;
+}
+
+.active:hover {
+  cursor: pointer;
+}
+
+#fara {
+  color: blue;
+  font-weight: 600;
+  font-size: 20px;
+}
+#canti {
+  font-weight: 600;
+  font-size: 20px;
 }

@@ -52,10 +52,15 @@ function convertTOfara() {
   let fara = degree * 1.8 + 32;
   let convertedTemp = document.querySelector("#temprature");
   convertedTemp.innerHTML = Math.round(fara);
+  cantiItem.classList.add("active");
+  faraItem.classList.remove("active");
 }
 function convertTOcanti() {
   let convertedTemp = document.querySelector("#temprature");
   convertedTemp.innerHTML = degree;
+  cantiItem.classList.remove("active");
+  faraItem.classList.add("active");
+  cantiItem.ena;
 }
 let btnSearch = document.querySelector("#search");
 btnSearch.addEventListener("click", findCity);
