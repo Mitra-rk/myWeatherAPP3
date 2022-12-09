@@ -83,3 +83,19 @@ h1::first-letter {
   font-weight: 600;
   font-size: 18px;
 }
+
+#columns {
+  text-align: center;
+  margin: 20px 0px;
+  padding: 5px;
+  padding-left: 0;
+}
+.forecast #max {
+  font-weight: bold;
+}
+
+.forecast #forecastImg {
+  width: 45px;
+  height: 45px;
+  margin: 5px;
+}

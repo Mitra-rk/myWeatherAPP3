@@ -30,7 +30,7 @@ function giveInfo(response) {
     "Monday",
     "Tuseday",
     "Wednsday",
-    "Thirsday",
+    "Thursday",
     "Friday",
     "Saturday",
   ];
@@ -69,3 +69,24 @@ let cantiItem = document.querySelector("#canti");
 let faraItem = document.querySelector("#fara");
 faraItem.addEventListener("click", convertTOfara);
 cantiItem.addEventListener("click", convertTOcanti);
+
+function makeCoulmns(sample) {
+  let days = ["Sun", "Mon", "Tus", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (days, index) {
+    if (index < 6) {
+      copyCol.innerHTML =
+        copyCol.innerHTML +
+        `<div class="col-2" id="">
+               <div>${days}</div>
+                <img id="forecastImg"></img>
+                <div> 
+                <span id="max">b</span>
+                <span id="min">k</span>
+                </div>
+            </div>`;
+    }
+  });
+}
+let copyCol = document.querySelector("#columns");
+
+makeCoulmns(copyCol);
