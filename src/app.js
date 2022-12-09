@@ -9,8 +9,27 @@ function findCity(event) {
 
   axios.get(apiUrl).then(giveInfo);
 }
+let lon = 0;
+let lat = 0;
+
+function showInfo(response) {
+  // console.log(response.data);
+  let citySearch = document.querySelector("#city");
+  citySearch.innerHTML = response.data.temperature.humidity;
+}
+
+function showForecast(x, y) {
+  let apiKey = "8c48afa47a9a9c24f3500c7039d50aaa";
+  let apiUrl = `api.openweathermap.org/data/2.5/forecast/daily?lat=${x}&lon=${y}&cnt=6&appid=${apiKey}}`;
+  axios.get(apiUrl).then(showInfo);
+}
 
 function giveInfo(response) {
+  lat = response.data.coordinates.latitude;
+  lon = response.data.coordinates.longitude;
+  console.log(response.data);
+  console.log(lat, lon);
+  showForecast(lat, lon);
   let citySearch = document.querySelector("#city");
   citySearch.innerHTML = response.data.city;
   let currentWind = document.querySelector("#wind");
