@@ -18,6 +18,7 @@ function giveInfo(response) {
 
   let citySearch = document.querySelector("#city");
   citySearch.innerHTML = response.data.city;
+
   let currentWind = document.querySelector("#wind");
   currentWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} Km/h`;
   let currentHumidity = document.querySelector("#humid");
@@ -62,41 +63,19 @@ function takeInfo(lon, lat) {
   axios.get(apiUrl).then(makeCoulmns);
 }
 
-function convertTOfara() {
-  let fara = degree * 1.8 + 32;
-  let convertedTemp = document.querySelector("#temprature");
-  convertedTemp.innerHTML = Math.round(fara);
-  cantiItem.classList.add("active");
-  faraItem.classList.remove("active");
-}
-function convertTOcanti() {
-  let convertedTemp = document.querySelector("#temprature");
-  convertedTemp.innerHTML = degree;
-  cantiItem.classList.remove("active");
-  faraItem.classList.add("active");
-  cantiItem.ena;
-}
 let btnSearch = document.querySelector("#search");
 btnSearch.addEventListener("click", findCity);
-
-let cantiItem = document.querySelector("#canti");
-let faraItem = document.querySelector("#fara");
-faraItem.addEventListener("click", convertTOfara);
-cantiItem.addEventListener("click", convertTOcanti);
 
 function formatDate(timeStamp) {
   let week = ["Sun", "Mon", "Tus", "Wed", "Thu", "Fri", "Sat"];
   let date = new Date(timeStamp * 1000);
   let day = date.getDay();
-  console.log(week[day]);
+
   return week[day];
 }
 
 function makeCoulmns(response) {
-  console.log(response.data);
-
   let dailyArray = response.data.daily;
-  console.log(dailyArray);
 
   let forecast1 = `<div class="row" id="row">`;
 
@@ -122,7 +101,6 @@ function makeCoulmns(response) {
   });
   forecast1 = forecast1 + `</div>`;
   let forecastElement = document.querySelector("#forecast");
-  console.log(forecast1);
+
   forecastElement.innerHTML = forecast1;
-  console.log(forecastElement);
 }
