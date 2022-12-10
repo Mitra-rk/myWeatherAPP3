@@ -12,24 +12,10 @@ function findCity(event) {
 let lon = 0;
 let lat = 0;
 
-function showInfo(response) {
-  // console.log(response.data);
-  let citySearch = document.querySelector("#city");
-  citySearch.innerHTML = response.data.temperature.humidity;
-}
-
-function showForecast(x, y) {
-  let apiKey = "8c48afa47a9a9c24f3500c7039d50aaa";
-  let apiUrl = `api.openweathermap.org/data/2.5/forecast/daily?lat=${x}&lon=${y}&cnt=6&appid=${apiKey}}`;
-  axios.get(apiUrl).then(showInfo);
-}
-
 function giveInfo(response) {
   lat = response.data.coordinates.latitude;
   lon = response.data.coordinates.longitude;
-  console.log(response.data);
-  console.log(lat, lon);
-  showForecast(lat, lon);
+
   let citySearch = document.querySelector("#city");
   citySearch.innerHTML = response.data.city;
   let currentWind = document.querySelector("#wind");
@@ -65,6 +51,15 @@ function giveInfo(response) {
   }
   let currentDay = document.querySelector("#day");
   currentDay.innerHTML = `Last updated at :${day} ${hour}:${min}`;
+
+  takeInfo(lon, lat);
+}
+
+function takeInfo(lon, lat) {
+  let apiKey = "0t0f733f3454c9aobbda64f6025e69d0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(makeCoulmns);
 }
 
 function convertTOfara() {
@@ -89,23 +84,45 @@ let faraItem = document.querySelector("#fara");
 faraItem.addEventListener("click", convertTOfara);
 cantiItem.addEventListener("click", convertTOcanti);
 
-function makeCoulmns(sample) {
-  let days = ["Sun", "Mon", "Tus", "Wed", "Thu", "Fri", "Sat"];
-  days.forEach(function (days, index) {
+function formatDate(timeStamp) {
+  let week = ["Sun", "Mon", "Tus", "Wed", "Thu", "Fri", "Sat"];
+  let date = new Date(timeStamp * 1000);
+  let day = date.getDay();
+  console.log(week[day]);
+  return week[day];
+}
+
+function makeCoulmns(response) {
+  console.log(response.data);
+
+  let dailyArray = response.data.daily;
+  console.log(dailyArray);
+
+  let forecast1 = `<div class="row" id="row">`;
+
+  dailyArray.forEach(function (forecast, index) {
     if (index < 6) {
-      copyCol.innerHTML =
-        copyCol.innerHTML +
-        `<div class="col-2" id="">
-               <div>${days}</div>
-                <img id="forecastImg"></img>
+      forecast1 =
+        forecast1 +
+        `<div class="col-2" id="col">
+               <div id="day">${formatDate(dailyArray[index].time)}</div>
+                <img  src="${
+                  dailyArray[index].condition.icon_url
+                }" id="forecastImg"></img>
                 <div> 
-                <span id="max">b</span>
-                <span id="min">k</span>
+                <span id="max">${Math.round(
+                  dailyArray[index].temperature.maximum
+                )}°</span>
+                <span id="min">${Math.round(
+                  dailyArray[index].temperature.minimum
+                )}°</span>
                 </div>
             </div>`;
     }
   });
+  forecast1 = forecast1 + `</div>`;
+  let forecastElement = document.querySelector("#forecast");
+  console.log(forecast1);
+  forecastElement.innerHTML = forecast1;
+  console.log(forecastElement);
 }
-let copyCol = document.querySelector("#columns");
-
-makeCoulmns(copyCol);

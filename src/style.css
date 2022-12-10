@@ -11,10 +11,10 @@
   box-sizing: border-box;
   padding: 20px;
 }
-#image {
+.tempImage #image {
   margin-right: 5px;
-  height: 64px;
-  width: 64px;
+  height: 80px;
+  width: 80px;
 }
 #city {
   color: rgb(172, 171, 171);
@@ -84,7 +84,7 @@ h1::first-letter {
   font-size: 18px;
 }
 
-#columns {
+#row {
   text-align: center;
   margin: 20px 0px;
   padding: 5px;
@@ -94,8 +94,13 @@ h1::first-letter {
   font-weight: bold;
 }
 
-.forecast #forecastImg {
-  width: 45px;
-  height: 45px;
-  margin: 5px;
+#forecastImg {
+  width: 55px;
+  height: 55px;
+  position: relative;
+  left: 50;
+}
+
+#col {
+  align-items: center;
 }
