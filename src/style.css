@@ -3,22 +3,26 @@
   height: 330px;
   margin: 20px auto;
 }
-
+.line {
+  border-bottom: 2px solid #f50057;
+}
 .container {
   border: 1px solid gray;
 
   border-radius: 10px;
   box-sizing: border-box;
+  box-shadow: 2px 2px 5px gray;
   padding: 20px;
 }
 .tempImage #image {
   margin-right: 5px;
   height: 80px;
   width: 80px;
+  margin: 5px;
 }
 #city {
-  color: rgb(172, 171, 171);
-  font-weight: lighter;
+  color: #f50057;
+
   font-size: 30px;
   margin-bottom: 8px;
   padding: 10px;
@@ -35,6 +39,7 @@
   font-size: 20px;
 }
 .humidityWind {
+  margin-top: 15px;
   color: rgb(173, 171, 171);
   font-weight: lighter;
   font-size: 20px;
@@ -70,10 +75,6 @@ h1::first-letter {
   text-transform: capitalize;
 }
 
-.active:hover {
-  cursor: pointer;
-}
-
 #canti {
   font-weight: 600;
   font-size: 18px;
@@ -107,4 +108,8 @@ h1::first-letter {
 }
 #country::first-letter {
   text-transform: capitalize;
+}
+#bgImg {
+  width: 200px;
+  height: 150px;
 }
