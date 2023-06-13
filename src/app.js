@@ -9,8 +9,8 @@ function findCity(event) {
 
   axios.get(apiUrl).then(giveInfo);
 }
-let lon = 0;
-let lat = 0;
+let lon = 52.5727236;
+let lat = 28.845604;
 
 function giveInfo(response) {
   lat = response.data.coordinates.latitude;
@@ -29,8 +29,12 @@ function giveInfo(response) {
   currentTemp.innerHTML = Math.round(response.data.temperature.current);
   degree = Math.round(response.data.temperature.current);
 
-  let downIcon = document.querySelector("#image");
+  let downIcon = document.querySelector("#weatherImage");
   downIcon.setAttribute("src", response.data.condition.icon_url);
+  document.getElementById("weatherImage").style.display = "block";
+  document.getElementById("cf").style.display = "inline";
+  document.getElementById("canti").style.display = "inline";
+
   let week = [
     "Sunday",
     "Monday",
@@ -84,11 +88,11 @@ function makeCoulmns(response) {
       forecast1 =
         forecast1 +
         `<div class="col-2" id="col">
-               <div id="day">${formatDate(dailyArray[index].time)}</div>
-                <img  src="${
+               <div id="day-forecast">${formatDate(dailyArray[index].time)}</div>
+                <img id="img-forecast" src="${
                   dailyArray[index].condition.icon_url
                 }" id="forecastImg"></img>
-                <div> 
+                <div id="max-min"> 
                 <span id="max">${Math.round(
                   dailyArray[index].temperature.maximum
                 )}°</span>
